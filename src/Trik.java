@@ -1,27 +1,37 @@
 import java.util.Scanner;
 public class Trik {
+	static int p = 1;
+	static char abc[] = new char[100];
 	public static void main(String[] args) {
-		int swap = 1; 		
-		char inp[] = new char[100]; 		
-		Scanner scan = new Scanner(System.in); 		
-		System.out.print("Enter ABC : "); 		
-		inp=scan.next().toCharArray(); 	
-		for (int i = 0 ; i < inp.length ; i++) { 	
-			
-			if (inp[i]=='A'||inp[i]=='a') { 				
-				if (swap==1) { swap=2; } 				
-				else if (swap==2) { swap=1;} 			} 		
-					else if (inp[i]=='B'||inp[i]=='b') { 			
-					if (swap==2) { swap=3; } 				
-				else if (swap==3) { swap=2;} 			} 	
-						else if (inp[i]=='C'||inp[i]=='c') { 		
-						if (swap==3) { swap=1; } 			
-					else if (swap==1) { swap=3;} 		
-					} 		
-				} 		
-			
-		System.out.print("Ball in glass : " + swap); 
-		}
+		Input();
+		Cal();
+		Output();
+	}
+	
+	public static void Input(){
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Input Data : ");
+		abc=scan.next().toCharArray();
+	}
+	
+	public static void Cal(){
+    	for (int i = 0 ; i < abc.length ; i++) {
+			if (abc[i]=='A') {
+				if (p==1) { p=2; }
+				else if (p==2) { p=1;}
+			}
+			else if (abc[i]=='B') {
+				if (p==2) { p=3; }
+				else if (p==3) { p=2;}
+			}
+			else if (abc[i]=='C') {
+				if (p==3) { p=1; }
+				else if (p==1) { p=3;}
+			}
+		}	
 	}
 
-
+    public static void Output(){
+    	System.out.print("Show Data : " + p);
+    }
+}
